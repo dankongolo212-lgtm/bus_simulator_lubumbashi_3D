@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta name="description" content="Jeu de course 3D - Pilotez un bus à Lubumbashi !">
   <title>Bus Runner 3D - Lubumbashi</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%23ff9900' width='180' height='180'/><rect fill='%231144aa' y='60' width='180' height='20'/><rect fill='%23ff8833' y='90' width='180' height='15'/><circle cx='40' cy='140' r='15' fill='%23111'/><circle cx='140' cy='140' r='15' fill='%23111'/></svg>">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -12,6 +16,15 @@
 <body>
 
 <div id="gameContainer"></div>
+
+<div id="startScreen" class="start-screen">
+  <div class="start-content">
+    <h1>🚍 BUS RUNNER 3D</h1>
+    <p>Pilotez un bus à Lubumbashi !</p>
+    <button id="playButton" class="play-button">🎮 JOUER</button>
+    <p class="credits">Créé avec Three.js</p>
+  </div>
+</div>
 
 <div class="ui-overlay">
   <div class="header">

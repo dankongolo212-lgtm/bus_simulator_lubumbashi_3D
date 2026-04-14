@@ -1,0 +1,41 @@
+{
+  "name": "Bus Runner 3D - Lubumbashi",
+  "short_name": "Bus Runner 3D",
+  "description": "Jeu de course 3D - Pilotez un bus à Lubumbashi !",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "orientation": "portrait-primary",
+  "theme_color": "#1a1a2e",
+  "background_color": "#1a1a2e",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23ff9900' width='192' height='192'/><rect fill='%231144aa' y='72' width='192' height='24'/><rect fill='%23ff8833' y='108' width='192' height='18'/><circle cx='48' cy='168' r='18' fill='%23111'/><circle cx='144' cy='168' r='18' fill='%23111'/><circle cx='48' cy='168' r='10' fill='%23888'/><circle cx='144' cy='168' r='10' fill='%23888'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%23ff9900' width='512' height='512'/><rect fill='%231144aa' y='192' width='512' height='64'/><rect fill='%23ff8833' y='288' width='512' height='48'/><circle cx='128' cy='448' r='48' fill='%23111'/><circle cx='384' cy='448' r='48' fill='%23111'/><circle cx='128' cy='448' r='26' fill='%23888'/><circle cx='384' cy='448' r='26' fill='%23888'/></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%231a1a2e' width='540' height='720'/><text x='270' y='100' font-size='32' fill='%23fff' text-anchor='middle' font-family='Arial'>🚍 BUS RUNNER 3D</text><text x='270' y='150' font-size='16' fill='%23aaa' text-anchor='middle' font-family='Arial'>Lubumbashi</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "categories": ["games"],
+  "screenshots": [
+    {
+      "src": "",
+      "sizes": "540x720",
+      "type": "image/svg+xml"
+    }
+  ]
+}

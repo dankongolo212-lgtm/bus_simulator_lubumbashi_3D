@@ -747,7 +747,13 @@ function setupControls() {
   }, { passive: false });
 }
 
-setup();
+// Initialiser les contrôles et l'animation
 setupControls();
 animate();
 updateUI();
+
+// Gestionnaire du bouton Jouer
+document.getElementById('playButton').addEventListener('click', function() {
+  document.getElementById('startScreen').classList.add('hidden');
+  setup();
+});
