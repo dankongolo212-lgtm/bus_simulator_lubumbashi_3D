@@ -1,0 +1,37 @@
+body {
+  text-align: center;
+  font-family: Arial;
+}
+
+#game {
+  width: 300px;
+  height: 500px;
+  background: #444;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+#bus {
+  width: 50px;
+  height: 80px;
+  background: yellow;
+  position: absolute;
+  bottom: 10px;
+  left: 125px;
+}
+
+.coin {
+  width: 30px;
+  height: 30px;
+  background: gold;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.obstacle {
+  width: 50px;
+  height: 50px;
+  background: red;
+  position: absolute;
+}
