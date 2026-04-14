@@ -695,7 +695,11 @@ function animate() {
   busPositionX += (targetBusPositionX - busPositionX) * 0.16;
   busGroup.position.x = busPositionX;
   busGroup.rotation.z = (targetBusPositionX - busPositionX) * 0.15;
-  camera.position.x = busPositionX * 0.3;
+  
+  // Caméra fixe derrière le bus
+  camera.position.x = busGroup.position.x;
+  camera.position.y = 7.5;
+  camera.position.z = busGroup.position.z + 24;
   camera.lookAt(busGroup.position.x, 1.5, busGroup.position.z);
 
   updateObjects();
