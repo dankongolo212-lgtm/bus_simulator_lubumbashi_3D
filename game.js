@@ -1,8 +1,8 @@
 const container = document.getElementById('gameContainer');
 
 const scene = new THREE.Scene();
-scene.fog = new THREE.FogExp2(0x87c2ff, 0.01);
-const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
+scene.fog = new THREE.FogExp2(0x87c2ff, 0.008);
+const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 5000);
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 
 renderer.setClearColor(0x87c2ff, 1);
@@ -582,17 +582,17 @@ function spawnDecor(z) {
   const side = Math.random() > 0.5 ? -1 : 1;
   const rand = Math.random();
   if (rand < 0.25) {
-    const x = side * (8.5 + Math.random() * 2.5);
-    const height = 3 + Math.random() * 5;
+    const x = side * (9 + Math.random() * 1.5);
+    const height = 4 + Math.random() * 4;
     decorPieces.push(addBuilding(x, z, height, 0x556677 + Math.random() * 0x999999));
   } else if (rand < 0.5) {
-    const x = side * (10 + Math.random() * 1.5);
+    const x = side * (10.5 + Math.random() * 1);
     decorPieces.push(addTree(x, z + (Math.random() > 0.5 ? 2 : -2)));
   } else if (rand < 0.75) {
-    const x = side * (9 + Math.random() * 0.8);
-    decorPieces.push(addLamp(x, z + Math.random() * 8 - 4));
+    const x = side * (9.5 + Math.random() * 0.5);
+    decorPieces.push(addLamp(x, z + Math.random() * 6 - 3));
   } else {
-    const x = side * (9.2 + Math.random() * 0.5);
+    const x = side * (9.3 + Math.random() * 0.4);
     decorPieces.push(addFence(x, z));
   }
 }
