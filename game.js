@@ -581,18 +581,23 @@ function spawnObstacle(z) {
 function spawnDecor(z) {
   const side = Math.random() > 0.5 ? -1 : 1;
   const rand = Math.random();
-  if (rand < 0.25) {
-    const x = side * (9 + Math.random() * 1.5);
-    const height = 4 + Math.random() * 4;
-    decorPieces.push(addBuilding(x, z, height, 0x556677 + Math.random() * 0x999999));
-  } else if (rand < 0.5) {
-    const x = side * (10.5 + Math.random() * 1);
-    decorPieces.push(addTree(x, z + (Math.random() > 0.5 ? 2 : -2)));
-  } else if (rand < 0.75) {
-    const x = side * (9.5 + Math.random() * 0.5);
-    decorPieces.push(addLamp(x, z + Math.random() * 6 - 3));
+  
+  if (rand < 0.3) {
+    // Bâtiments
+    const x = side * 10;
+    const height = 4 + Math.random() * 3;
+    decorPieces.push(addBuilding(x, z, height, 0x556677 + Math.floor(Math.random() * 0x444444)));
+  } else if (rand < 0.6) {
+    // Arbres
+    const x = side * (10.5 + Math.random() * 0.5);
+    decorPieces.push(addTree(x, z));
+  } else if (rand < 0.8) {
+    // Lampadaires
+    const x = side * (9.5 + Math.random() * 0.3);
+    decorPieces.push(addLamp(x, z));
   } else {
-    const x = side * (9.3 + Math.random() * 0.4);
+    // Clôtures
+    const x = side * (9.3 + Math.random() * 0.2);
     decorPieces.push(addFence(x, z));
   }
 }
@@ -607,8 +612,8 @@ function setup() {
     if (i % 2 === 0) spawnObstacle(-25 - i * 15);
   }
 
-  for (let i = 0; i < 20; i++) {
-    spawnDecor(-10 - i * 20);
+  for (let i = 0; i < 25; i++) {
+    spawnDecor(-50 - i * 25);
   }
 
   camera.position.set(0, 7.5, 24);
@@ -656,11 +661,11 @@ function updateObjects() {
   });
 
   decorPieces.forEach((decor, index) => {
-    decor.position.z += speed * 0.7;
+    decor.position.z += speed;
     if (decor.position.z > 30) {
       scene.remove(decor);
       decorPieces.splice(index, 1);
-      spawnDecor(-220);
+      spawnDecor(-200);
     }
   });
 }
