@@ -49,7 +49,7 @@ const GAME_WIDTH = 12;
 
 function addRoad() {
   const geometry = new THREE.PlaneGeometry(GAME_WIDTH, 400);
-  const material = new THREE.MeshStandardMaterial({ color: 0x2c2c2c, roughness: 0.9, metalness: 0 });
+  const material = new THREE.MeshStandardMaterial({ color: 0x8b6f47, roughness: 0.95, metalness: 0 });
   const road = new THREE.Mesh(geometry, material);
   road.rotation.x = -Math.PI / 2;
   road.position.y = 0;
@@ -60,22 +60,28 @@ function addRoad() {
   lineCanvas.width = 512;
   lineCanvas.height = 512;
   const ctx = lineCanvas.getContext('2d');
-  ctx.fillStyle = '#2c2c2c';
+  
+  // Texture de terre avec variation
+  ctx.fillStyle = '#8b6f47';
   ctx.fillRect(0, 0, 512, 512);
+  
+  // Ajouter des variations de couleur pour une texture plus réaliste
+  ctx.fillStyle = 'rgba(139, 111, 71, 0.3)';
+  for (let i = 0; i < 30; i++) {
+    ctx.fillRect(Math.random() * 512, Math.random() * 512, Math.random() * 40, Math.random() * 40);
+  }
+  
+  ctx.fillStyle = 'rgba(101, 84, 61, 0.2)';
+  for (let i = 0; i < 20; i++) {
+    ctx.fillRect(Math.random() * 512, Math.random() * 512, Math.random() * 60, Math.random() * 60);
+  }
 
+  // Herbe sur les côtés
   ctx.fillStyle = '#3a9c71';
   ctx.fillRect(0, 0, 60, 512);
   ctx.fillRect(452, 0, 60, 512);
 
-  ctx.fillStyle = '#3f3f3f';
-  ctx.fillRect(64, 0, 384, 512);
-
-  ctx.fillStyle = '#616161';
-  for (let y = 0; y < 512; y += 24) {
-    ctx.fillRect(82, y + 4, 10, 6);
-    ctx.fillRect(420, y + 12, 10, 6);
-  }
-
+  // Marques de route blanches au centre
   ctx.fillStyle = '#ffffff';
   for (let i = 0; i < 16; i++) {
     ctx.fillRect(248, i * 32 + 8, 16, 16);
@@ -87,10 +93,10 @@ function addRoad() {
   texture.repeat.set(1, 70);
   material.map = texture;
   material.bumpMap = texture;
-  material.bumpScale = 0.08;
+  material.bumpScale = 0.12;
   material.needsUpdate = true;
 
-  const sidewalkMaterial = new THREE.MeshStandardMaterial({ color: 0x88d2ae, roughness: 0.95 });
+  const sidewalkMaterial = new THREE.MeshStandardMaterial({ color: 0x7cb342, roughness: 0.95 });
   const leftSidewalk = new THREE.Mesh(new THREE.PlaneGeometry(2.5, 400), sidewalkMaterial);
   leftSidewalk.rotation.x = -Math.PI / 2;
   leftSidewalk.position.set(-GAME_WIDTH / 2 - 1.25, 0.01, 0);
@@ -628,7 +634,7 @@ function endGame() {
 }
 
 function updateObjects() {
-  const speed = gameSpeed + level * 0.03;
+  const speed = gameSpeed + level * 0.06;
 
   coins.forEach((coin, index) => {
     coin.position.z += speed;
@@ -671,7 +677,7 @@ function checkCollisions() {
       updateUI();
       if (coinsCollected % 5 === 0) {
         level += 1;
-        gameSpeed += 0.03;
+        gameSpeed += 0.06;
         updateUI();
       }
     }
